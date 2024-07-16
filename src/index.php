@@ -4,7 +4,7 @@ Try {
         $req = curl_init();
         curl_setopt($req, CURLOPT_URL, $url);
         curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: text/xml'));
+        @curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: text/xml'));
         $res = curl_exec($req);
         curl_close($req);
         $xml = new SimpleXMLElement(trim(str_replace("encoding=\"utf-16\"","",$res)));
